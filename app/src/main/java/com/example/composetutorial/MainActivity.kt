@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.style.BackgroundColorSpan
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -26,8 +27,10 @@ data class Message(val author: String, val body: String)
 
 @Composable
 fun MessageCard(msg: Message) {
-    Text(text = msg.author)
-    Text(text = msg.body)
+    Column {
+        Text(text = msg.author)
+        Text(text = msg.body)
+    }
 }
 
 @Preview
