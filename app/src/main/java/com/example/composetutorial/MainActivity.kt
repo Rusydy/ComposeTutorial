@@ -1,16 +1,16 @@
 package com.example.composetutorial
 
+
 import android.os.Bundle
-import android.text.style.BackgroundColorSpan
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.Image
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composetutorial.ui.theme.ComposeTutorialTheme
 
@@ -27,15 +27,22 @@ data class Message(val author: String, val body: String)
 
 @Composable
 fun MessageCard(msg: Message) {
-    Column {
-        Text(text = msg.author)
-        Text(text = msg.body)
+    Row {
+        Image(
+            painter = painterResource(R.drawable.linux_avatar),
+            contentDescription = "Profile Picture"
+        )
+
+        Column {
+            Text(text = msg.author)
+            Text(text = msg.body)
+        }
     }
 }
 
 @Preview
 @Composable
 fun PreviewMessageCard() {
-    MessageCard(Message("Lexi", "Hey, take a look at Jetpack Compose, it's great!"))
+    MessageCard(msg = Message("Lexi", "Hey, take a look at Jetpack Compose, it's great!"))
 }
 
